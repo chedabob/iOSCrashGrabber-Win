@@ -58,7 +58,7 @@
             // instText
             // 
             this.instText.AutoSize = true;
-            this.instText.Location = new System.Drawing.Point(-3, 240);
+            this.instText.Location = new System.Drawing.Point(12, 240);
             this.instText.Name = "instText";
             this.instText.Size = new System.Drawing.Size(35, 13);
             this.instText.TabIndex = 2;

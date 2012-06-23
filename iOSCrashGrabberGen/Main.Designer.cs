@@ -49,6 +49,7 @@
             this.appNameTextBox.Name = "appNameTextBox";
             this.appNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.appNameTextBox.TabIndex = 1;
+            this.appNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.appNameTextBox_KeyUp);
             // 
             // goButton
             // 

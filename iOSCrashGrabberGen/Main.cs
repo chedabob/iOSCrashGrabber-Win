@@ -18,6 +18,11 @@ namespace Sonny
 
         private void goButton_Click(object sender, EventArgs e)
         {
+            buildApp();
+        }
+
+        private void buildApp()
+        {
             String appName = appNameTextBox.Text;
 
             if (appName.Length == 0)
@@ -49,5 +54,15 @@ namespace Sonny
 
             return data;
         }
+
+        private void appNameTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                buildApp();
+            }
+        }
+
+       
     }
 }
