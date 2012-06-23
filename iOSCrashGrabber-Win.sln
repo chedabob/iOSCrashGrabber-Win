@@ -2,9 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOSCrashGrabberGen", "iOSCrashGrabberGen\iOSCrashGrabberGen.csproj", "{86221306-A07D-463D-95F7-5D7D64B40D69}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5E72A591-57FB-4AE2-8C2E-AA0075057F9B} = {5E72A591-57FB-4AE2-8C2E-AA0075057F9B}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOSCrashGrabber", "iOSCrashGrabber\iOSCrashGrabber.csproj", "{5E72A591-57FB-4AE2-8C2E-AA0075057F9B}"
 EndProject

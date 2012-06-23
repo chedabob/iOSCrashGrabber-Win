@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace Rico
 {
@@ -98,10 +99,38 @@ namespace Rico
             String appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Apple Computer\\Logs\\CrashReporter\\MobileDevice";
             String desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             List<String> files = new List<string>();
-
-            traverseDirectoriesForFiles(appDataPath, ref files);
             
-            MessageBox.Show(String.Format("Saved {0}-crashlogs-{1}.zip to your desktop. Please email this file to your vendor.", appName, DateTime.Now.ToString("ddMMyy-HHmm"))); 
+            traverseDirectoriesForFiles(appDataPath, ref files);
+
+            List<String> prunedFiles = files;
+
+            if (appName.Length > 0)
+            {
+                prunedFiles = new List<string>(files.Count);
+
+                files.ForEach((x) =>
+                    {
+                        String filename = Path.GetFileName(x);
+                        if (filename.Contains(appName))
+                            prunedFiles.Add(x);
+                    });
+            }
+
+            String outputFile = String.Format(appName.Length > 0 ? "{0}-crashlogs-{1}.zip" : "ios-crashlogs-{1}.zip", appName,DateTime.Now.ToString("ddMMyy-HHmm"));
+            using (FileStream fs = File.Open(desktopPath + '\\' + outputFile, FileMode.Create))
+            {
+
+                ZipFile zf = ZipFile.Create(fs);
+                zf.BeginUpdate();
+                prunedFiles.ForEach((x) =>
+                    {
+                        zf.Add(x,Path.GetFileName(x));
+                    });
+                zf.CommitUpdate();
+                zf.Close();
+                fs.Close();
+            }
+            MessageBox.Show(String.Format("Saved {0} to your desktop. Please email this file to your vendor.", outputFile )); 
         }
 
         private void traverseDirectoriesForFiles(String rootDir, ref List<String> foundFiles)
