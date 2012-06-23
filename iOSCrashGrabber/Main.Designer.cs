@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.stepPictureBox = new System.Windows.Forms.PictureBox();
             this.nextButton = new System.Windows.Forms.Button();
+            this.instText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.stepPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(170, 243);
+            this.nextButton.Location = new System.Drawing.Point(170, 269);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(80, 23);
             this.nextButton.TabIndex = 1;
@@ -54,12 +55,22 @@
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
+            // instText
+            // 
+            this.instText.AutoSize = true;
+            this.instText.Location = new System.Drawing.Point(-3, 240);
+            this.instText.Name = "instText";
+            this.instText.Size = new System.Drawing.Size(35, 13);
+            this.instText.TabIndex = 2;
+            this.instText.Text = "label1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(414, 285);
+            this.ClientSize = new System.Drawing.Size(414, 305);
+            this.Controls.Add(this.instText);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.stepPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -70,6 +81,7 @@
             this.Text = "Rico";
             ((System.ComponentModel.ISupportInitialize)(this.stepPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,6 +89,7 @@
 
         private System.Windows.Forms.PictureBox stepPictureBox;
         private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Label instText;
 
     }
 }
