@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace iOSCrashGrabber
+namespace Rico
 {
     static class Program
     {
